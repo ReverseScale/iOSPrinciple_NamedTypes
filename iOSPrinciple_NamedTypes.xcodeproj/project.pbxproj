@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		34216D1920B2A1CB00D1848F /* StructViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34216D1820B2A1CB00D1848F /* StructViewController.swift */; };
+		34216D1B20B2AEDA00D1848F /* VSViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34216D1A20B2AEDA00D1848F /* VSViewController.swift */; };
 		34938EF520B29184001B46BE /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34938EF420B29184001B46BE /* AppDelegate.swift */; };
 		34938EF720B29184001B46BE /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34938EF620B29184001B46BE /* ViewController.swift */; };
 		34938EFA20B29185001B46BE /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 34938EF820B29185001B46BE /* Main.storyboard */; };
@@ -37,6 +38,7 @@
 
 /* Begin PBXFileReference section */
 		34216D1820B2A1CB00D1848F /* StructViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StructViewController.swift; sourceTree = "<group>"; };
+		34216D1A20B2AEDA00D1848F /* VSViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VSViewController.swift; sourceTree = "<group>"; };
 		34938EF120B29184001B46BE /* iOSPrinciple_NamedTypes.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = iOSPrinciple_NamedTypes.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		34938EF420B29184001B46BE /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		34938EF620B29184001B46BE /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -105,6 +107,7 @@
 				34938EF620B29184001B46BE /* ViewController.swift */,
 				34938F2220B29518001B46BE /* EnumViewController.swift */,
 				34216D1820B2A1CB00D1848F /* StructViewController.swift */,
+				34216D1A20B2AEDA00D1848F /* VSViewController.swift */,
 				34938EF820B29185001B46BE /* Main.storyboard */,
 				34938EFB20B2918D001B46BE /* Assets.xcassets */,
 				34938EFD20B2918D001B46BE /* LaunchScreen.storyboard */,
@@ -266,6 +269,7 @@
 				34216D1920B2A1CB00D1848F /* StructViewController.swift in Sources */,
 				34938F2320B29518001B46BE /* EnumViewController.swift in Sources */,
 				34938EF520B29184001B46BE /* AppDelegate.swift in Sources */,
+				34216D1B20B2AEDA00D1848F /* VSViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

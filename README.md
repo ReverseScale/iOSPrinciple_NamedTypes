@@ -339,6 +339,205 @@ p1
 类能够改变是因为，类是引用类型，内部做浅拷贝处理，本质是指向同一个对象，自然可以改name；
 结构体之前已经说过是值类型，内部做深拷贝处理，会重新生成一个对象，在复制时修改一个实例的数据并不影响副本的数据。
 
+### 性能对比
+
+其实本质是对比值类型和引用类型的性能，因此擂台上的选手就是结构体（struct）和类（class）。
+
+#### 测试1: 循环创建类和结构体
+
+a.执行1亿次类创建
+
+```swift
+// 定义类
+class StudentC{
+    var name:String
+    init(name:String) {
+        self.name = name
+    }
+}
+// 统计时间
+let date = Date()
+for i in 0...100_000_000{
+    let s = StudentC(name: "酷走天涯")
+}
+print(Date().timeIntervalSince(date))
+```
+
+运行三次结果:
+> 19.3928480148315
+> 20.9919492812921
+> 20.7549253872943
+
+b.执行10亿次结构体创建
+
+```swift
+// 定义结构体
+struct StudentS{
+    var name:String
+    init( name:String) {
+        self.name = name
+    }
+}
+let date = Date()
+for i in 0...1000_000_000{
+    let s = StudentS(name: "酷走天涯")
+}
+print(Date().timeIntervalSince(date))
+```
+
+运行三次结果:
+> 9.99221454212455
+> 10.9281648273917
+> 10.7281881727434
+
+我们上面的属性为基本数据类型,我们将属性改为对象测试一下速度
+
+c.创建10_000_000个对象
+
+```swift
+class StudentC{
+    var date = NSDate()
+}
+for i in 0...10_000_000{
+    let s = StudentS()
+}
+```
+测试结果:
+
+> 6.38509398698807
+> 6.43649202585222
+> 6.39519000053406
+
+d.创建10_000_000个结构体实例
+
+```swift
+struct StudentS{
+    var date = NSDate()
+}
+for i in 0...10_000_000{
+    let s = StudentS()
+}
+```
+测试结果:
+
+> 4.38509398698807
+> 4.43649202585222
+> 4.39519000053406
+
+结论：创建结构体要比创建对象速度快
+
+#### 测试2:创建1000_000 个对象或者结构体放在数组中,查看内存占用率
+
+a.循环创建1000_000个对象
+
+```swift
+class StudentC{
+    var name:String
+    init( name:String) {
+        self.name = name
+    }
+}
+var students:[StudentC] = []
+// 创建
+for i in 0...1000_000{
+let s = StudentC(name: "酷走天涯")
+students.append(s)
+}
+```
+
+运行结果:
+
+> 内存占用61.8MB
+
+b.循环创建1000_000个结构体
+
+```swift
+struct StudentS{
+    var name:String
+    init( name:String) {
+        self.name = name
+    }
+}
+var students:[StudentS] = []
+for i in 0...1000_000{
+let s = StudentS(name: "酷走天涯")
+students.append(s)
+}
+```
+
+运行结果:
+
+> 内存占用32.6MB
+
+照样,我们将基本属性改为对象继续测试
+
+c.10_000_000 个对象添加到数组中
+
+```swift
+class StudentC{
+    var date = NSDate()
+}
+var students:[StudentC] = []
+for i in 0...10_000_000{
+    let s = StudentC()
+    students.append(s)
+}
+```
+测试结果:
+
+> 占内存538.7MB
+
+d.10_000_000 个结构体添加到数组中
+
+```swift
+struct StudentS{
+    var date = NSDate()
+}
+for i in 0...10_000_000{
+    let s = StudentS()
+    students.append(s)
+}
+```
+测试结构:
+
+> 占用225.7MB
+
+结论：创建相同属性的结构体比类更加节省内存
+
+#### 测试3:对1_000_000个结构体实体和对象进行排序,测消耗时间
+
+a.对1_000_000个结构体实体进行排序
+
+```swift
+let date = Date()
+students.sort { (stu1, stu2) -> Bool in
+    return stu1.name > stu2.name
+}
+print(Date().timeIntervalSince(date))
+```
+
+运行结果:
+
+> 13.3783949613571
+> 13.6793909668922
+
+b.对1_000_000个对象进行排序
+
+```swift
+let date = Date()
+students.sort { (stu1, stu2) -> Bool in
+    return stu1.name > stu2.name
+}
+print(Date().timeIntervalSince(date))
+```
+
+运行结果:
+
+> 6.70881998538971
+> 6.60394102334976
+
+结论: 在数据量比较大的排序中,结构体排序的速度比较慢,因为结构体是值类型,排序的时候,需要大量的赋值运算。而对象只需要交换地址即可。
+
 ### 对比总结
 
 #### 枚举、结构体、类的共同点：
@@ -348,6 +547,13 @@ p1
 * 初始化器；
 * 支持扩展增加功能；
 * 可以遵循协议；
+
+#### 结构体、类的不同点：
+
+* 类可以继承,结构体不能继承；
+* 类能够在运行时检查和解释类实例的类型；
+* Deinitializers使一个类的实例来释放任何资源分配；
+* 类有引用计数,允许对象被多次引用；
 
 #### 类特有的功能：
 
@@ -371,6 +577,10 @@ p1
 * 要用==运算符来比较实例身份的时候
 * 你希望有创建一个共享的、可变对象的时候
 
+3.类和结构体在效率上的差异：
 
+结构体创建速度,内存占用更小,如果需要使用复杂的运算,这个时候,就需要综合考虑两者的有缺点了。
+
+> 以上原理解析文章来源：https://www.jianshu.com/p/51f99a352838，http://www.cocoachina.com/swift/20161221/18377.html
 
 

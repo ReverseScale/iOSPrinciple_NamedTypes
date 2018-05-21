@@ -32,12 +32,21 @@
                                     <segue destination="RtA-TF-sRi" kind="push" id="WuY-sN-BBM"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QuR-n1-HbB">
+                                <rect key="frame" x="138" y="419" width="99" height="30"/>
+                                <state key="normal" title="class vs struct"/>
+                                <connections>
+                                    <segue destination="Ybf-dN-cQn" kind="push" id="AVv-Zy-M4u"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="2Pg-cp-ZNf" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="3Ns-s6-fAH"/>
                             <constraint firstItem="gBh-Bb-p0G" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="M5J-bw-xfg"/>
                             <constraint firstItem="2Pg-cp-ZNf" firstAttribute="top" secondItem="gBh-Bb-p0G" secondAttribute="bottom" constant="20" id="NHI-kn-CHt"/>
+                            <constraint firstItem="QuR-n1-HbB" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="bVC-rB-pJM"/>
+                            <constraint firstItem="QuR-n1-HbB" firstAttribute="top" secondItem="2Pg-cp-ZNf" secondAttribute="bottom" constant="20" id="nc5-gd-Rsa"/>
                             <constraint firstItem="gBh-Bb-p0G" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="qTe-tX-8bm"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
@@ -46,7 +55,23 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1756" y="-321"/>
+            <point key="canvasLocation" x="1756" y="-321.58920539730138"/>
+        </scene>
+        <!--vs-->
+        <scene sceneID="FEb-R6-rib">
+            <objects>
+                <viewController id="Ybf-dN-cQn" customClass="VSViewController" customModule="iOSPrinciple_NamedTypes" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="3ED-Bw-WHv">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <viewLayoutGuide key="safeArea" id="wJO-QK-yCI"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="vs" id="H5w-xe-ACy"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="kSM-DB-NBm" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2533" y="162"/>
         </scene>
         <!--Enum-->
         <scene sceneID="t04-z0-Swm">
