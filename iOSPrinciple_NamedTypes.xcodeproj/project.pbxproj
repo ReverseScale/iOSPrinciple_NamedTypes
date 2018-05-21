@@ -14,6 +14,7 @@
 		34938EFF20B2918D001B46BE /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 34938EFD20B2918D001B46BE /* LaunchScreen.storyboard */; };
 		34938F0A20B2918D001B46BE /* iOSPrinciple_NamedTypesTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34938F0920B2918D001B46BE /* iOSPrinciple_NamedTypesTests.swift */; };
 		34938F1520B2918D001B46BE /* iOSPrinciple_NamedTypesUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34938F1420B2918D001B46BE /* iOSPrinciple_NamedTypesUITests.swift */; };
+		34938F2320B29518001B46BE /* EnumViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34938F2220B29518001B46BE /* EnumViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -47,6 +48,7 @@
 		34938F1020B2918D001B46BE /* iOSPrinciple_NamedTypesUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = iOSPrinciple_NamedTypesUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		34938F1420B2918D001B46BE /* iOSPrinciple_NamedTypesUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = iOSPrinciple_NamedTypesUITests.swift; sourceTree = "<group>"; };
 		34938F1620B2918D001B46BE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		34938F2220B29518001B46BE /* EnumViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EnumViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -99,6 +101,7 @@
 			children = (
 				34938EF420B29184001B46BE /* AppDelegate.swift */,
 				34938EF620B29184001B46BE /* ViewController.swift */,
+				34938F2220B29518001B46BE /* EnumViewController.swift */,
 				34938EF820B29185001B46BE /* Main.storyboard */,
 				34938EFB20B2918D001B46BE /* Assets.xcassets */,
 				34938EFD20B2918D001B46BE /* LaunchScreen.storyboard */,
@@ -257,6 +260,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				34938EF720B29184001B46BE /* ViewController.swift in Sources */,
+				34938F2320B29518001B46BE /* EnumViewController.swift in Sources */,
 				34938EF520B29184001B46BE /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
