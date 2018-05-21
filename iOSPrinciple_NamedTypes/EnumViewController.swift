@@ -23,7 +23,7 @@ enum StudentTypeRaw: Int{
 }
 
 //枚举的关联值(associated value)
-//定义一个表示学生类型的枚举类型 StudentType，他有三个成员分别是pupils、middleSchoolStudent、collegeStudents
+//定义一个表示学生类型的枚举类型 StudentTypeAssociated，他有三个成员分别是pupils、middleSchoolStudent、collegeStudents
 enum StudentTypeAssociated {
     case pupils(String)
     case middleSchoolStudent(Int, String)
@@ -36,7 +36,7 @@ class EnumViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-//        testEnumStudentTypeRaw()
+        testEnumStudentTypeRaw()
         
         testEnumStudentTypeAssociated()
         
